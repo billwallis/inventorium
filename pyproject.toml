@@ -12,6 +12,7 @@ readme = "README.md"
 license-files = ["LICENSE"]
 requires-python = ">=3.13"
 dependencies = []
+scripts.inv = "inventorium.main:main"
 
 [dependency-groups]
 dev = [

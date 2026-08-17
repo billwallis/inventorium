@@ -12,6 +12,19 @@
 
 Illustration server for different types of APIs.
 
+Based on the following YouTube video:
+
+- [https://www.youtube.com/watch?v=pBASqUbZgkY](https://www.youtube.com/watch?v=pBASqUbZgkY)
+
+This covers the following types of APIs:
+
+- REST
+- SOAP
+- gRPC
+- GraphQL
+- Webhook
+- WebSocket
+
 ## Contributing
 
 Install the dependencies:
@@ -22,4 +35,18 @@ source .venv/bin/activate
 
 pip install --editable . --group dev
 pre-commit install --install-hooks
+```
+
+## Usage
+
+Installing the project exposes an `inv` command:
+
+```shell
+inv --help
+```
+
+For example, running all the migrations:
+
+```shell
+inv migrate up 'path/to/file.db'
 ```
