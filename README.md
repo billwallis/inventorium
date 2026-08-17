@@ -12,6 +12,19 @@
 
 Illustration server for different types of APIs.
 
+Based on the following YouTube video:
+
+- [https://www.youtube.com/watch?v=pBASqUbZgkY](https://www.youtube.com/watch?v=pBASqUbZgkY)
+
+This covers the following types of APIs:
+
+- REST
+- SOAP
+- gRPC
+- GraphQL
+- Webhook
+- WebSocket
+
 ## Contributing
 
 Install the dependencies:
