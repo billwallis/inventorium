@@ -36,3 +36,17 @@ source .venv/bin/activate
 pip install --editable . --group dev
 pre-commit install --install-hooks
 ```
+
+## Usage
+
+Installing the project exposes an `inv` command:
+
+```shell
+inv --help
+```
+
+For example, running all the migrations:
+
+```shell
+inv migrate up 'path/to/file.db'
+```
