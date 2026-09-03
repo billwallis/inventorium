@@ -1,11 +1,14 @@
 create table stores (
     store_id integer not null primary key,
-    store_name text not null unique,
+    store_name text not null,
 
     created_ts text default current_timestamp,
     updated_ts text default current_timestamp,
     deleted integer default false
 ) strict;
+create unique index stores__unique
+on stores (store_name)
+where deleted = 0;
 create trigger stores__update_updated_ts
 after update on stores
 begin
@@ -17,12 +20,15 @@ end;
 
 create table products (
     product_id integer not null primary key,
-    product_name text not null unique,
+    product_name text not null,
 
     created_ts text default current_timestamp,
     updated_ts text default current_timestamp,
     deleted integer default false
 ) strict;
+create unique index products__unique
+on products (product_name)
+where deleted = 0;
 create trigger products__update_updated_ts
 after update on products
 begin

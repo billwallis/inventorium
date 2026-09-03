@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import contextlib
+from collections.abc import Generator
 from typing import Any, Protocol, Self
 
 
@@ -16,6 +18,9 @@ class DatabaseConnection(Protocol):
     def execute(self, *args: Any, **kwargs: Any) -> DatabaseCursor:
         pass  # pragma: no cover
 
+    def close(self) -> None:
+        pass  # pragma: no cover
+
 
 class DatabaseCursor(Protocol):
     def execute(self, *args: Any, **kwargs: Any) -> Self:
@@ -26,3 +31,13 @@ class DatabaseCursor(Protocol):
 
     def fetchall(self, *args: Any, **kwargs: Any) -> list[Any]:
         pass  # pragma: no cover
+
+    def close(self) -> None:
+        pass  # pragma: no cover
+
+
+@contextlib.contextmanager
+def cursor_ctx(conn: DatabaseConnection) -> Generator[DatabaseCursor]:
+    cursor = conn.cursor()
+    yield cursor
+    cursor.close()
